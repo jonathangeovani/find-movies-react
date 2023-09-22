@@ -14,7 +14,9 @@ const MovieCard = ({ Title, Year, Type, Poster }: MovieCardProps) => {
       </div>
       <div>
         <img
-          src={Poster !== "N/A" ? Poster : "http://via.placeholder.com/300x400"}
+          src={
+            Poster !== "N/A" ? Poster : "https://via.placeholder.com/300x400"
+          }
           alt={Title}
         />
       </div>

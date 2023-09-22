@@ -5,7 +5,7 @@ import { MovieCard } from "./components";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
-const API_URL = `http://www.omdbapi.com/?apikey=${API_KEY}`;
+const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}`;
 let currentPage = 1;
 
 const App = () => {
