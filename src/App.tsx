@@ -61,12 +61,10 @@ const App = () => {
         />
       </div>
 
-      {totalResults ? (
+      {totalResults && (
         <div className="empty">
           <h2>Results: {totalResults} found!</h2>
         </div>
-      ) : (
-        <p>{API_KEY}</p>
       )}
 
       <div className="container">
@@ -88,7 +86,7 @@ const App = () => {
       </div>
 
       <div className="page-arrows">
-        {currentPage > 1 ? (
+        {currentPage > 1 && (
           <span
             onClick={() => {
               currentPage--;
@@ -98,33 +96,25 @@ const App = () => {
           >
             &lt;
           </span>
-        ) : (
-          <span></span>
         )}
-        {totalResults ? (
+        {totalResults && (
           <span>
             {currentPage} de{" "}
             {totalResults % 10 !== 0
               ? Math.floor(totalResults / 10) + 1
               : totalResults / 10}
           </span>
-        ) : (
-          <span></span>
         )}
-        {totalResults > 10 ? (
-          totalResults / 10 > currentPage && (
-            <span
-              onClick={() => {
-                currentPage++;
-                searchMovies(searchTerm, currentPage);
-                window.scrollTo(0, 0);
-              }}
-            >
-              &gt;
-            </span>
-          )
-        ) : (
-          <span></span>
+        {totalResults > 10 && totalResults / 10 > currentPage && (
+          <span
+            onClick={() => {
+              currentPage++;
+              searchMovies(searchTerm, currentPage);
+              window.scrollTo(0, 0);
+            }}
+          >
+            &gt;
+          </span>
         )}
       </div>
     </div>
