@@ -2,10 +2,9 @@ import { useEffect, useState } from "react";
 import SearchIcon from "./assets/search.svg";
 import "./App.css";
 import { MovieCard } from "./components";
+import API_KEY from "./apiKey";
 
-const API_URL = `http://www.omdbapi.com/?apikey=${
-  import.meta.env.VITE_API_KEY
-}`;
+const API_URL = `http://www.omdbapi.com/?apikey=${API_KEY}`;
 let currentPage = 1;
 
 const App = () => {
