@@ -71,7 +71,11 @@ const Home = ({ language }: any) => {
 
       {totalResults > 0 && (
         <div className="empty">
-          <h2>Results: {totalResults} found!</h2>
+          <h2>
+            {language === "pt-BR"
+              ? `Resultado da busca: ${totalResults}`
+              : `Results: ${totalResults}`}
+          </h2>
         </div>
       )}
 
@@ -88,7 +92,11 @@ const Home = ({ language }: any) => {
           ))
         ) : (
           <div className="empty">
-            <h2>No movies found!</h2>
+            <h2>
+              {language === "pt-BR"
+                ? "Nenhum filme encontrado"
+                : "No moive found"}
+            </h2>
           </div>
         )}
       </div>
@@ -96,6 +104,7 @@ const Home = ({ language }: any) => {
       <div className="page-arrows">
         {currentPage > 1 && (
           <span
+            className="arrow"
             onClick={() => {
               currentPage--;
               searchMovies(searchTerm, currentPage);
@@ -106,14 +115,15 @@ const Home = ({ language }: any) => {
           </span>
         )}
         {totalResults > 0 && (
-          <span>
+          <span className="page-index">
             {currentPage}
-            {" de "}
+            {language === "pt-BR" ? " de " : " of "}
             {totalPages}
           </span>
         )}
         {totalPages > 1 && totalPages > currentPage && (
           <span
+            className="arrow"
             onClick={() => {
               currentPage++;
               searchMovies(searchTerm, currentPage);

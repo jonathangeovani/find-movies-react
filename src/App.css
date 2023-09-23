@@ -146,7 +146,7 @@ h1 {
 
 .empty {
   width: 100%;
-  margin-top: 3rem;
+  margin-top: 2rem;
 
   display: flex;
   justify-content: center;
@@ -157,23 +157,6 @@ h1 {
   font-size: 1.25rem;
   color: #f9d3b4;
   font-family: var(--font-raleway);
-}
-
-.page-arrows {
-  margin-top: 1.5rem;
-}
-
-.page-arrows span {
-  padding: 1rem;
-  font-size: 2rem;
-  font-weight: 800;
-  color: #f9d3b4;
-  font-family: var(--font-raleway);
-  cursor: pointer;
-}
-
-.page-arrows span:hover {
-  color: #9a826f;
 }
 
 .container {
@@ -267,6 +250,32 @@ h1 {
 
 .movie:hover div:nth-of-type(1) {
   opacity: 1;
+}
+
+.page-arrows {
+  margin-top: 1.5rem;
+}
+
+.page-arrows span.arrow, span.page-index {
+  padding: 1rem;
+  color: #f9d3b4;
+  font-family: var(--font-raleway);
+}
+
+.page-arrows span.page-index {
+  font-weight: 500;
+  font-size: 1.7rem;
+  cursor: default;
+}
+
+.page-arrows span.arrow {
+  font-weight: 800;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.page-arrows span.arrow:hover {
+  color: #9a826f;
 }
 
 @media screen and (max-width: 600px) {
