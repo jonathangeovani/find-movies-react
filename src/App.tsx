@@ -5,34 +5,72 @@ import { MovieCard } from "./components";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
-const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}`;
+const API_URL = `https://api.themoviedb.org/3/`;
 let currentPage = 1;
 
 const App = () => {
+  const [language, setLanguage] = useState("pt-BR");
   const [searchTerm, setSearchTerm] = useState("");
 
   const [movies, setMovies] = useState([]);
   const [totalResults, setTotalResults] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
 
   const searchMovies = async (title: string, page = 1) => {
-    const response = await fetch(`${API_URL}&s=${title}&page=${page}`);
+    const finalUrl =
+      title !== ""
+        ? `${API_URL}search/movie?query=${title}&language=${language}&page=${page}&api_key=${API_KEY}`
+        : `${API_URL}discover/movie?with_genres=10751&language=${language}&page=${page}&api_key=${API_KEY}`;
+    const response = await fetch(finalUrl);
     const data = await response.json();
-    setMovies(data.Search);
+    setMovies(data.results);
   };
 
-  const searchTotalResults = async (title: string) => {
-    const response = await fetch(`${API_URL}&s=${title}`);
+  const searchTotalPages = async (title: string) => {
+    const finalUrl =
+      title !== ""
+        ? `${API_URL}search/movie?query=${title}&language=${language}&page=1&api_key=${API_KEY}`
+        : `${API_URL}discover/movie?with_genres=10751&language=${language}&page=1&api_key=${API_KEY}`;
+    const response = await fetch(finalUrl);
     const data = await response.json();
-    setTotalResults(data.totalResults);
+    setTotalPages(data.total_pages);
+    setTotalResults(data.total_results);
   };
 
   useEffect(() => {
     searchMovies(searchTerm);
-    searchTotalResults(searchTerm);
-  }, []);
+    searchTotalPages(searchTerm);
+  }, [language]);
 
   return (
     <div className="app">
+      {language === "pt-BR" ? (
+        <div className="languages">
+          <span
+            onClick={() => {
+              setLanguage("en-US");
+            }}
+          >
+            EN
+          </span>
+          |
+          <span className="activated" onClick={() => setLanguage("pt-BR")}>
+            BR
+          </span>
+        </div>
+      ) : (
+        <div className="languages">
+          <span
+            className="activated"
+            onClick={() => {
+              setLanguage("en-US");
+            }}
+          >
+            EN
+          </span>
+          |<span onClick={() => setLanguage("pt-BR")}>BR</span>
+        </div>
+      )}
       <h1>Find Movies</h1>
       <div className="search">
         <input
@@ -45,7 +83,7 @@ const App = () => {
           onKeyDown={(e) => {
             if (e.key === "Enter") {
               searchMovies(searchTerm);
-              searchTotalResults(searchTerm);
+              searchTotalPages(searchTerm);
               currentPage = 1;
             }
           }}
@@ -55,13 +93,13 @@ const App = () => {
           alt="Search"
           onClick={() => {
             searchMovies(searchTerm);
-            searchTotalResults(searchTerm);
+            searchTotalPages(searchTerm);
             currentPage = 1;
           }}
         />
       </div>
 
-      {totalResults && (
+      {totalResults > 0 && (
         <div className="empty">
           <h2>Results: {totalResults} found!</h2>
         </div>
@@ -71,11 +109,11 @@ const App = () => {
         {movies?.length > 0 ? (
           movies.map((movie) => (
             <MovieCard
-              key={movie["imdbID"]}
-              Title={movie["Title"]}
-              Year={movie["Year"]}
-              Type={movie["Type"]}
-              Poster={movie["Poster"]}
+              key={movie["id"]}
+              Title={movie["title"]}
+              Year={movie["release_date"]}
+              Vote={movie["vote_average"]}
+              Poster={movie["poster_path"]}
             />
           ))
         ) : (
@@ -97,15 +135,14 @@ const App = () => {
             &lt;
           </span>
         )}
-        {totalResults && (
+        {totalResults > 0 && (
           <span>
-            {currentPage} de{" "}
-            {totalResults % 10 !== 0
-              ? Math.floor(totalResults / 10) + 1
-              : totalResults / 10}
+            {currentPage}
+            {" de "}
+            {totalPages}
           </span>
         )}
-        {totalResults > 10 && totalResults / 10 > currentPage && (
+        {totalPages > 1 && totalPages > currentPage && (
           <span
             onClick={() => {
               currentPage++;
