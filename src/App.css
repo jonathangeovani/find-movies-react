@@ -27,6 +27,25 @@ body {
   flex-direction: column;
 }
 
+.nav-links {
+  position: absolute;
+  top: 2rem;
+  left: 10%;
+  display: flex;
+  gap: 1rem;
+  font-family: Roboto Slab, serif;
+  text-transform: uppercase;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: #f9d3b4;
+}
+
 .languages {  
   position: absolute;
   top: 2rem;
@@ -36,7 +55,8 @@ body {
 }
 
 .languages span {
-  padding: .4rem 1rem;
+  margin: 0 .4rem;
+  padding: .4rem .9rem;
   border-radius: 8px;
   background: none;
   cursor: pointer;
@@ -158,6 +178,11 @@ h1 {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.container .links {
+  color: #f9d3b4;
+  text-decoration: none;
 }
 
 .movie {
