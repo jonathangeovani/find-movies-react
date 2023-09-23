@@ -27,10 +27,14 @@ body {
   flex-direction: column;
 }
 
+.app nav {
+  width: 90%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
 .nav-links {
-  position: absolute;
-  top: 2rem;
-  left: 10%;
   display: flex;
   gap: 1rem;
   font-family: Roboto Slab, serif;
@@ -40,16 +44,18 @@ body {
 .nav-links a {
   color: #fff;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .nav-links a:hover {
   color: #f9d3b4;
 }
 
-.languages {  
-  position: absolute;
-  top: 2rem;
-  right: 10%;
+.nav-links a:active {
+  color: #9a826f;
+}
+
+.languages {
   font-family: Roboto Slab, serif;
   color: #fff;
 }
@@ -265,12 +271,24 @@ h1 {
 
 @media screen and (max-width: 600px) {
   .app {
-    padding: 4rem 2rem;
+    padding: 2rem 2rem 4rem 2rem;
   }
 
+  .app nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
   .search {
-    padding: 1rem 1.75rem;
-    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .empty {
+    margin-top: 1rem;
+  }
+
+  .container {
+    margin-top: 1rem;
   }
 
   .search input {
@@ -285,15 +303,24 @@ h1 {
 
 @media screen and (max-width: 400px) {
   .app {
-    padding: 4rem 1rem;
+    padding: 2rem 2rem 4rem 1rem;
   }
 
   h1 {
+    padding-top: 2rem;
     font-size: 2rem;
   }
 
+  .search {
+    margin-top: 1rem;
+  }
+
+  .empty {
+    margin-top: 1rem;
+  }
+
   .container {
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 
   .movie {

@@ -4,57 +4,52 @@ import { About, Home } from "./pages";
 
 const App = () => {
   const [language, setLanguage] = useState("pt-BR");
-  let Container;
-
-  switch (window.location.pathname) {
-    case "/":
-      Container = <Home language={language} />;
-      break;
-    case "/about":
-      Container = <About language={language} />;
-  }
+  const [page, setPage] = useState("home");
 
   return (
     <div className="app">
-      {language === "pt-BR" ? (
-        <div className="languages">
-          <span
-            onClick={() => {
-              setLanguage("en-US");
-            }}
-          >
-            EN
-          </span>
-          |
-          <span className="activated" onClick={() => setLanguage("pt-BR")}>
-            BR
-          </span>
-        </div>
-      ) : (
-        <div className="languages">
-          <span
-            className="activated"
-            onClick={() => {
-              setLanguage("en-US");
-            }}
-          >
-            EN
-          </span>
-          |<span onClick={() => setLanguage("pt-BR")}>BR</span>
-        </div>
-      )}
-      {language === "pt-BR" ? (
-        <div className="nav-links">
-          <a href="/">Página Inicial</a>
-          <a href="/about">Sobre</a>
-        </div>
-      ) : (
-        <div className="nav-links">
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-        </div>
-      )}
-      {Container}
+      <nav>
+        {language === "pt-BR" ? (
+          <div className="languages">
+            <span
+              onClick={() => {
+                setLanguage("en-US");
+              }}
+            >
+              EN
+            </span>
+            |
+            <span className="activated" onClick={() => setLanguage("pt-BR")}>
+              BR
+            </span>
+          </div>
+        ) : (
+          <div className="languages">
+            <span
+              className="activated"
+              onClick={() => {
+                setLanguage("en-US");
+              }}
+            >
+              EN
+            </span>
+            |<span onClick={() => setLanguage("pt-BR")}>BR</span>
+          </div>
+        )}
+        {language === "pt-BR" ? (
+          <div className="nav-links">
+            <a onClick={() => setPage("home")}>Página Inicial</a>
+            <a onClick={() => setPage("about")}>Sobre</a>
+          </div>
+        ) : (
+          <div className="nav-links">
+            <a onClick={() => setPage("home")}>Home</a>
+            <a onClick={() => setPage("about")}>About</a>
+          </div>
+        )}
+      </nav>
+      {page === "home" && <Home language={language} />}
+      {page === "about" && <About language={language} />}
     </div>
   );
 };
