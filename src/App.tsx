@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { About, Home } from "./pages";
 
+let storedLanguage = localStorage.getItem("LANG");
+
 const App = () => {
-  const [language, setLanguage] = useState("pt-BR");
+  const [language, setLanguage] = storedLanguage
+    ? useState(storedLanguage)
+    : useState("pt-BR");
   const [page, setPage] = useState("home");
+
+  useEffect(() => {
+    localStorage.setItem("LANG", language);
+  }, [language]);
 
   return (
     <div className="app">
