@@ -8,9 +8,7 @@ const App = () => {
   const [language, setLanguage] = storedLanguage
     ? useState(storedLanguage)
     : useState("pt-BR");
-  const [page, setPage] = useState(() => {
-    return "home";
-  });
+  const [page, setPage] = useState("home");
 
   useEffect(() => {
     localStorage.setItem("LANG", language);

@@ -8,19 +8,10 @@ const API_URL = `https://api.themoviedb.org/3/`;
 let currentPage = 1;
 
 const Home = ({ language }: any) => {
-  const [movies, setMovies] = useState(() => {
-    return [];
-  });
-  const [totalResults, setTotalResults] = useState(() => {
-    return 0;
-  });
-  const [totalPages, setTotalPages] = useState(() => {
-    return 0;
-  });
-
-  const [searchTerm, setSearchTerm] = useState(() => {
-    return "";
-  });
+  const [movies, setMovies] = useState([]);
+  const [totalResults, setTotalResults] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const searchMovies = async (title: string, page = 1) => {
     const finalUrl =
