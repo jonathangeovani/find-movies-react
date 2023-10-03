@@ -187,6 +187,7 @@ h1 {
 
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
   box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+  /* cursor: pointer; */
 }
 
 .movie div:nth-of-type(1) {
@@ -196,11 +197,6 @@ h1 {
   opacity: 0;
   top: 0;
   color: #f9d3b4;
-}
-
-.movie:hover {
-  box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
-  transform: scale(1.05, 1.05);
 }
 
 .movie div:nth-of-type(2) {
@@ -217,7 +213,7 @@ h1 {
   z-index: 2;
   background-color: #343739;
   padding: 16px 24px 24px 24px;
-
+  
   position: absolute;
   bottom: 0;
   right: 0;
@@ -237,19 +233,6 @@ h1 {
   margin-top: 5px;
   font-family: "Roboto Slab", serif;
   color: #f9d3b4;
-}
-
-.movie:hover div:nth-of-type(2) {
-  height: 100%;
-  opacity: 0.3;
-}
-
-.movie:hover div:nth-of-type(3) {
-  background-color: transparent;
-}
-
-.movie:hover div:nth-of-type(1) {
-  opacity: 1;
 }
 
 .page-arrows {
@@ -278,11 +261,31 @@ h1 {
   color: #9a826f;
 }
 
+@media only screen and (min-width: 1024px) {
+  .movie:hover {
+    box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05, 1.05);
+  }
+  
+  .movie:hover div:nth-of-type(2) {
+    height: 100%;
+    opacity: 0.3;
+  }
+  
+  .movie:hover div:nth-of-type(3) {
+    background-color: transparent;
+  }
+  
+  .movie:hover div:nth-of-type(1) {
+    opacity: 1;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .app {
     padding: 2rem 2rem 4rem 2rem;
   }
-
+  
   .app nav {
     flex-direction: column;
     align-items: center;
@@ -295,7 +298,7 @@ h1 {
   .empty {
     margin-top: 1rem;
   }
-
+  
   .container {
     margin-top: 1rem;
   }
@@ -303,7 +306,7 @@ h1 {
   .search input {
     font-size: 1rem;
   }
-
+  
   .search img {
     width: 20px;
     height: 20px;
@@ -314,24 +317,24 @@ h1 {
   .app {
     padding: 2rem 2rem 4rem 1rem;
   }
-
+  
   h1 {
     padding-top: 2rem;
     font-size: 2rem;
   }
-
+  
   .search {
     margin-top: 1rem;
   }
-
+  
   .empty {
     margin-top: 1rem;
   }
-
+  
   .container {
     margin-top: 1rem;
   }
-
+  
   .movie {
     width: "100%";
     margin: 1rem;
