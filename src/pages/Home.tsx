@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { MovieCard } from "../components";
 import SearchInput from "../components/SearchInput";
 import SearchResults from "../components/SearchResults";
+import MoviesContainer from "../components/MoviesContainer";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -56,20 +56,8 @@ const Home = ({ language }: any) => {
         searchMovies={searchMovies}
         searchTotalPages={searchTotalPages}
       />
-
       <SearchResults language={language} totalResults={totalResults} />
-
-      <div className="container">
-        {movies?.map((movie) => (
-          <MovieCard
-            key={movie["id"]}
-            Title={movie["title"]}
-            Year={movie["release_date"]}
-            Vote={movie["vote_average"]}
-            Poster={movie["poster_path"]}
-          />
-        ))}
-      </div>
+      <MoviesContainer movies={movies} />
 
       <div className="page-arrows">
         {currentPage > 1 && (
