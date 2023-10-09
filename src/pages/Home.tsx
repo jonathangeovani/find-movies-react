@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import SearchIcon from "../assets/search.svg";
 import { MovieCard } from "../components";
+import SearchInput from "../components/SearchInput";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 const API_URL = `https://api.themoviedb.org/3/`;
-let currentPage = 1;
 
 const Home = ({ language }: any) => {
   const [movies, setMovies] = useState([]);
   const [totalResults, setTotalResults] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
 
   const searchMovies = async (title: string, page = 1) => {
     const finalUrl =
@@ -34,6 +34,12 @@ const Home = ({ language }: any) => {
     setTotalResults(data.total_results);
   };
 
+  function getNextPage(page: number) {
+    searchMovies(searchTerm, page);
+    window.scrollTo(0, 0);
+    setCurrentPage(page);
+  }
+
   useEffect(() => {
     searchMovies(searchTerm);
     searchTotalPages(searchTerm);
@@ -41,32 +47,14 @@ const Home = ({ language }: any) => {
   return (
     <>
       <h1>Find Movies</h1>
-      <div className="search">
-        <input
-          type="text"
-          placeholder="Search for movies"
-          value={searchTerm}
-          onChange={(newSearchTerm) => {
-            setSearchTerm(newSearchTerm.target.value);
-          }}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              searchMovies(searchTerm);
-              searchTotalPages(searchTerm);
-              currentPage = 1;
-            }
-          }}
-        />
-        <img
-          src={SearchIcon}
-          alt="Search"
-          onClick={() => {
-            searchMovies(searchTerm);
-            searchTotalPages(searchTerm);
-            currentPage = 1;
-          }}
-        />
-      </div>
+      <SearchInput
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        searchMovies={searchMovies}
+        searchTotalPages={searchTotalPages}
+      />
 
       {totalResults > 0 && (
         <div className="empty">
@@ -105,9 +93,7 @@ const Home = ({ language }: any) => {
           <span
             className="arrow"
             onClick={() => {
-              currentPage--;
-              searchMovies(searchTerm, currentPage);
-              window.scrollTo(0, 0);
+              getNextPage(currentPage - 1);
             }}
           >
             &lt;
@@ -124,9 +110,7 @@ const Home = ({ language }: any) => {
           <span
             className="arrow"
             onClick={() => {
-              currentPage++;
-              searchMovies(searchTerm, currentPage);
-              window.scrollTo(0, 0);
+              getNextPage(currentPage + 1);
             }}
           >
             &gt;
