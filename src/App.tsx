@@ -3,6 +3,7 @@ import { About, Home } from "./pages";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav";
 import "./App.css";
+import Footer from "./components/Footer";
 
 let storedLanguage = localStorage.getItem("LANG");
 
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/about" element={<About language={language} />} />
         </Routes>
       </main>
+      <Footer language={language} />
     </Router>
   );
 };

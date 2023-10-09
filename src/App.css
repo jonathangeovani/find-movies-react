@@ -238,7 +238,7 @@ h1 {
 }
 
 .page-arrows {
-  margin-top: 1.5rem;
+  margin: 1.5rem 0 3.5rem;
 }
 
 .page-arrows span.arrow, span.page-index {
@@ -261,6 +261,19 @@ h1 {
 
 .page-arrows span.arrow:hover {
   color: #9a826f;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  padding: 1.5rem;
+  width: 100%;
+  background-color: #1c1d1f;
+  color: #f9d3b4;
+
+  display: flex;
+  justify-content: center;
 }
 
 @media only screen and (min-width: 1024px) {
