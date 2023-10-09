@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
-interface NavbarProps {
+interface NavProps {
   language: string;
   setLanguage: (newLanguage: string) => void;
 }
 
-export default function Navbar(props: NavbarProps) {
+export default function Nav(props: NavProps) {
   return (
     <nav>
       {props.language === "pt-BR" ? (

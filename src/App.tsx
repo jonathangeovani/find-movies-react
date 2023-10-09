@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import "./App.css";
 import { About, Home } from "./pages";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import Nav from "./components/Nav";
+import "./App.css";
 
 let storedLanguage = localStorage.getItem("LANG");
 
@@ -18,7 +18,7 @@ const App = () => {
   return (
     <Router>
       <div className="app">
-        <Navbar language={language} setLanguage={setLanguage} />
+        <Nav language={language} setLanguage={setLanguage} />
         <Routes>
           <Route path="/" element={<Home language={language} />} />
           <Route path="/about" element={<About language={language} />} />
