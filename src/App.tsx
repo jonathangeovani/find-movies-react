@@ -17,13 +17,13 @@ const App = () => {
 
   return (
     <Router>
-      <div className="app">
-        <Nav language={language} setLanguage={setLanguage} />
+      <Nav language={language} setLanguage={setLanguage} />
+      <main className="app">
         <Routes>
           <Route path="/" element={<Home language={language} />} />
           <Route path="/about" element={<About language={language} />} />
         </Routes>
-      </div>
+      </main>
     </Router>
   );
 };
