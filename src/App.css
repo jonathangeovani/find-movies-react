@@ -27,6 +27,16 @@ body {
   flex-direction: column;
 }
 
+.center-content {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.center-content p {
+  margin: 2rem 0 4rem;
+  color: #f0f0f0;
+}
+
 nav {
   margin: 0 auto;
   padding: 2.5rem 2.25rem;
