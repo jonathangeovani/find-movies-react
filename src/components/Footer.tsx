@@ -1,5 +1,5 @@
 interface FooterProps {
-  language: string;
+  language: "pt-BR" | "en-US";
 }
 
 export default function Footer(props: FooterProps) {
