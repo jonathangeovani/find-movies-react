@@ -1,4 +1,8 @@
-const About = ({ language }: any) => {
+interface AboutProps {
+  language: "pt-BR" | "en-US";
+}
+
+const About = ({ language }: AboutProps) => {
   return (
     <>
       {language === "pt-BR" ? (

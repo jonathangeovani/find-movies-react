@@ -8,7 +8,11 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 
 const API_URL = `https://api.themoviedb.org/3/`;
 
-const Home = ({ language }: any) => {
+interface HomeProps {
+  language: "pt-BR" | "en-US";
+}
+
+const Home = ({ language }: HomeProps) => {
   const [movies, setMovies] = useState([]);
   const [totalResults, setTotalResults] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
