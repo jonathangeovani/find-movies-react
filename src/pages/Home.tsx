@@ -59,7 +59,7 @@ const Home = ({ language }: any) => {
       <SearchResults language={language} totalResults={totalResults} />
       <MoviesContainer movies={movies} />
 
-      <div className="page-arrows">
+      <div className="pagination">
         {currentPage > 1 && (
           <span
             className="arrow"

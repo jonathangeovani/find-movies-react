@@ -237,29 +237,29 @@ h1 {
   color: #f9d3b4;
 }
 
-.page-arrows {
+.pagination {
   margin: 1.5rem 0 3.5rem;
 }
 
-.page-arrows span.arrow, span.page-index {
+.pagination span.arrow, span.page-index {
   padding: 1rem;
   color: #f9d3b4;
   font-family: var(--font-raleway);
 }
 
-.page-arrows span.page-index {
+.pagination span.page-index {
   font-weight: 500;
   font-size: 1.7rem;
   cursor: default;
 }
 
-.page-arrows span.arrow {
+.pagination span.arrow {
   font-weight: 800;
   font-size: 2rem;
   cursor: pointer;
 }
 
-.page-arrows span.arrow:hover {
+.pagination span.arrow:hover {
   color: #9a826f;
 }
 
