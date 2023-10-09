@@ -5,7 +5,7 @@ interface SearchResultsProps {
 
 export default function SearchResults(props: SearchResultsProps) {
   return (
-    <div className="empty">
+    <div className="search-results">
       {props.totalResults > 0 ? (
         <h2>
           {props.language === "pt-BR"
