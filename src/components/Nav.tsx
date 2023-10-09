@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 interface NavProps {
-  language: "pt-BR" | "en-US";
+  language: string;
   setLanguage: (newLanguage: string) => void;
 }
 

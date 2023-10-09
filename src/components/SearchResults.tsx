@@ -1,5 +1,5 @@
 interface SearchResultsProps {
-  language: "pt-BR" | "en-US";
+  language: string;
   totalResults: number;
 }
 

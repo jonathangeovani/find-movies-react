@@ -1,5 +1,5 @@
 interface AboutProps {
-  language: "pt-BR" | "en-US";
+  language: string;
 }
 
 const About = ({ language }: AboutProps) => {
