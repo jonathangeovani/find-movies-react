@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import SearchInput from "../components/SearchInput";
 import SearchResults from "../components/SearchResults";
 import MoviesContainer from "../components/MoviesContainer";
+import Pagination from "../components/Pagination";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -58,36 +59,13 @@ const Home = ({ language }: any) => {
       />
       <SearchResults language={language} totalResults={totalResults} />
       <MoviesContainer movies={movies} />
-
-      <div className="pagination">
-        {currentPage > 1 && (
-          <span
-            className="arrow"
-            onClick={() => {
-              getNextPage(currentPage - 1);
-            }}
-          >
-            &lt;
-          </span>
-        )}
-        {totalResults > 0 && (
-          <span className="page-index">
-            {currentPage}
-            {language === "pt-BR" ? " de " : " of "}
-            {totalPages}
-          </span>
-        )}
-        {totalPages > 1 && totalPages > currentPage && (
-          <span
-            className="arrow"
-            onClick={() => {
-              getNextPage(currentPage + 1);
-            }}
-          >
-            &gt;
-          </span>
-        )}
-      </div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        totalResults={totalResults}
+        language={language}
+        getNextPage={getNextPage}
+      />
     </>
   );
 };
