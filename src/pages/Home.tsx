@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { MovieCard } from "../components";
 import SearchInput from "../components/SearchInput";
+import SearchResults from "../components/SearchResults";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -56,36 +57,18 @@ const Home = ({ language }: any) => {
         searchTotalPages={searchTotalPages}
       />
 
-      {totalResults > 0 && (
-        <div className="empty">
-          <h2>
-            {language === "pt-BR"
-              ? `Resultado da busca: ${totalResults}`
-              : `Results: ${totalResults}`}
-          </h2>
-        </div>
-      )}
+      <SearchResults language={language} totalResults={totalResults} />
 
       <div className="container">
-        {movies?.length > 0 ? (
-          movies.map((movie) => (
-            <MovieCard
-              key={movie["id"]}
-              Title={movie["title"]}
-              Year={movie["release_date"]}
-              Vote={movie["vote_average"]}
-              Poster={movie["poster_path"]}
-            />
-          ))
-        ) : (
-          <div className="empty">
-            <h2>
-              {language === "pt-BR"
-                ? "Nenhum filme encontrado"
-                : "No moive found"}
-            </h2>
-          </div>
-        )}
+        {movies?.map((movie) => (
+          <MovieCard
+            key={movie["id"]}
+            Title={movie["title"]}
+            Year={movie["release_date"]}
+            Vote={movie["vote_average"]}
+            Poster={movie["poster_path"]}
+          />
+        ))}
       </div>
 
       <div className="page-arrows">
