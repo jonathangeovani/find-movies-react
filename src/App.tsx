@@ -4,6 +4,7 @@ import { About, Home, PageNotFound } from "./pages";
 import { Footer, Nav } from "./components";
 import "./App.css";
 import { AppContextContent } from "./types";
+import MovieDetails from "./pages/MovieDetails";
 
 let storedLanguage = localStorage.getItem("LANG");
 export const AppContext = createContext<AppContextContent | null>(null);
@@ -25,6 +26,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home title={"Find Movies"} />} />
             <Route path="/about" element={<About />} />
+            <Route path="/movie/:movieId" element={<MovieDetails />} />
             <Route path="/*" element={<PageNotFound />} />
           </Routes>
         </main>
