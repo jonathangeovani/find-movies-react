@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import { About, Home } from "./pages";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Footer from "./components/Footer";
-import Nav from "./components/Nav";
+import { About, Home, PageNotFound } from "./pages";
+import { Footer, Nav } from "./components";
 import "./App.css";
-import PageNotFound from "./pages/PageNotFound";
 
 let storedLanguage = localStorage.getItem("LANG");
 

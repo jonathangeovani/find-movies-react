@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
-import SearchInput from "../components/SearchInput";
-import SearchResults from "../components/SearchResults";
-import MoviesContainer from "../components/MoviesContainer";
-import Pagination from "../components/Pagination";
+import { SearchInput, SearchResults } from "../components";
+import { MoviesContainer, Pagination } from "../components";
 import { useMovies } from "../hooks/useMovies";
 
 interface HomeProps {
