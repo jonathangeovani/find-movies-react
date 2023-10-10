@@ -24,6 +24,7 @@ const Home = ({ language }: HomeProps) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    refetch();
   }, [currentPage]);
 
   return (
