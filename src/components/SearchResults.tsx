@@ -1,22 +1,21 @@
-interface SearchResultsProps {
-  language: string;
-  totalResults: number;
-}
+import { useAppContext } from "../hooks/useAppContext";
+import { useHomeContext } from "../hooks/useHomeContext";
 
-export default function SearchResults(props: SearchResultsProps) {
+export default function SearchResults() {
+  const { language } = useAppContext();
+  const { totalResults } = useHomeContext();
+
   return (
     <div className="search-results">
-      {props.totalResults > 0 ? (
+      {totalResults! > 0 ? (
         <h2>
-          {props.language === "pt-BR"
-            ? `Resultado da busca: ${props.totalResults}`
-            : `Results: ${props.totalResults}`}
+          {language === "pt-BR"
+            ? `Resultado da busca: ${totalResults}`
+            : `Results: ${totalResults}`}
         </h2>
       ) : (
         <h2>
-          {props.language === "pt-BR"
-            ? "Nenhum filme encontrado"
-            : "No moive found"}
+          {language === "pt-BR" ? "Nenhum filme encontrado" : "No moive found"}
         </h2>
       )}
     </div>

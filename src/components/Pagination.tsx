@@ -1,36 +1,35 @@
-interface PaginationProps {
-  currentPage: number;
-  totalPages: number;
-  totalResults: number;
-  language: string;
-  setCurrentPage: (page: number) => void;
-}
+import { useAppContext } from "../hooks/useAppContext";
+import { useHomeContext } from "../hooks/useHomeContext";
 
-export default function Pagination(props: PaginationProps) {
+export default function Pagination() {
+  const { language } = useAppContext();
+  const { currentPage, setCurrentPage, totalResults, totalPages } =
+    useHomeContext();
+
   return (
     <div className="pagination">
-      {props.currentPage > 1 && (
+      {currentPage > 1 && (
         <span
           className="arrow"
           onClick={() => {
-            props.setCurrentPage(props.currentPage - 1);
+            setCurrentPage(currentPage - 1);
           }}
         >
           &lt;
         </span>
       )}
-      {props.totalResults > 0 && (
+      {totalResults! > 0 && (
         <span className="page-index">
-          {props.currentPage}
-          {props.language === "pt-BR" ? " de " : " of "}
-          {props.totalPages}
+          {currentPage}
+          {language === "pt-BR" ? " de " : " of "}
+          {totalPages}
         </span>
       )}
-      {props.totalPages > 1 && props.totalPages > props.currentPage && (
+      {totalPages! > 1 && totalPages! > currentPage && (
         <span
           className="arrow"
           onClick={() => {
-            props.setCurrentPage(props.currentPage + 1);
+            setCurrentPage(currentPage + 1);
           }}
         >
           &gt;

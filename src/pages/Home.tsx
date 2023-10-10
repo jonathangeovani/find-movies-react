@@ -1,10 +1,27 @@
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { SearchInput, SearchResults } from "../components";
 import { MoviesContainer, Pagination } from "../components";
 import { useMovies } from "../hooks/useMovies";
 import { useAppContext } from "../hooks/useAppContext";
 
-const Home = () => {
+interface HomeContextContent {
+  searchTerm: string;
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+  currentPage: number;
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+  movies: [] | undefined;
+  totalPages: number | undefined;
+  totalResults: number | undefined;
+  refetch: () => void;
+}
+
+export const HomeContext = createContext<HomeContextContent | null>(null);
+
+interface HomeProps {
+  title: string;
+}
+
+const Home = ({ title }: HomeProps) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const { language } = useAppContext();
@@ -24,28 +41,24 @@ const Home = () => {
   }, [currentPage]);
 
   return (
-    <>
-      <h1>Find Movies</h1>
-      <SearchInput
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        searchMovies={refetch}
-      />
-      <SearchResults
-        language={language}
-        totalResults={totalResults ? totalResults : 0}
-      />
-      <MoviesContainer movies={movies ? movies : []} />
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages ? totalPages : 0}
-        totalResults={totalResults ? totalResults : 0}
-        language={language}
-        setCurrentPage={setCurrentPage}
-      />
-    </>
+    <HomeContext.Provider
+      value={{
+        searchTerm,
+        setSearchTerm,
+        currentPage,
+        setCurrentPage,
+        movies,
+        totalPages,
+        totalResults,
+        refetch,
+      }}
+    >
+      <h1>{title} &nbsp;</h1>
+      <SearchInput />
+      <SearchResults />
+      <MoviesContainer />
+      <Pagination />
+    </HomeContext.Provider>
   );
 };
 

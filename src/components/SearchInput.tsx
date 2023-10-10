@@ -1,27 +1,22 @@
 import SearchIcon from "../assets/search.svg";
+import { useHomeContext } from "../hooks/useHomeContext";
 
-interface SearchInputProps {
-  searchTerm: string;
-  setSearchTerm: (value: string) => void;
-  currentPage: number;
-  setCurrentPage: (prevPage: number) => void;
-  searchMovies: () => void;
-}
-
-export default function SearchInput(props: SearchInputProps) {
+export default function SearchInput() {
+  const { searchTerm, setSearchTerm, setCurrentPage, refetch } =
+    useHomeContext();
   return (
     <div className="search">
       <input
         type="text"
         placeholder="Search for movies"
-        value={props.searchTerm}
+        value={searchTerm}
         onChange={(newSearchTerm) => {
-          props.setSearchTerm(newSearchTerm.target.value);
+          setSearchTerm(newSearchTerm.target.value);
         }}
         onKeyDown={(e) => {
           if (e.key === "Enter") {
-            props.setCurrentPage(1);
-            props.searchMovies();
+            setCurrentPage(1);
+            refetch();
           }
         }}
       />
@@ -29,8 +24,8 @@ export default function SearchInput(props: SearchInputProps) {
         src={SearchIcon}
         alt="Search"
         onClick={() => {
-          props.setCurrentPage(1);
-          props.searchMovies();
+          setCurrentPage(1);
+          refetch();
         }}
       />
     </div>

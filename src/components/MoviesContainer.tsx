@@ -1,10 +1,9 @@
 import { MovieCard } from "../components";
+import { useHomeContext } from "../hooks/useHomeContext";
 
-interface MoviesContainerProps {
-  movies: never[];
-}
+export default function MoviesContainer() {
+  const { movies } = useHomeContext();
 
-export default function MoviesContainer({ movies }: MoviesContainerProps) {
   return (
     <div className="container">
       {movies?.map((movie) => (
