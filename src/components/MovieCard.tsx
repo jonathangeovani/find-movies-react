@@ -1,14 +1,18 @@
+import { useNavigate } from "react-router-dom";
+
 interface MovieCardProps {
   Title: string;
   Year: string;
-  imdbID?: string;
+  imdbID: string;
   Vote: string;
   Poster: string;
 }
 
-const MovieCard = ({ Title, Year, Vote, Poster }: MovieCardProps) => {
+const MovieCard = ({ Title, Year, Vote, Poster, imdbID }: MovieCardProps) => {
+  const navigate = useNavigate();
+
   return (
-    <div className="movie">
+    <div className="movie" onClick={() => navigate("/movie/" + imdbID)}>
       <div>
         <p>{Vote} / 10</p>
       </div>

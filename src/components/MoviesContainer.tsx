@@ -13,6 +13,7 @@ export default function MoviesContainer() {
           Year={movie["release_date"]}
           Vote={movie["vote_average"]}
           Poster={movie["poster_path"]}
+          imdbID={movie["id"]}
         />
       ))}
     </div>
