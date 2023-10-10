@@ -3,11 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { About, Home, PageNotFound } from "./pages";
 import { Footer, Nav } from "./components";
 import "./App.css";
-
-interface AppContextContent {
-  language: string;
-  setLanguage: React.Dispatch<React.SetStateAction<string>>;
-}
+import { AppContextContent } from "./types";
 
 let storedLanguage = localStorage.getItem("LANG");
 export const AppContext = createContext<AppContextContent | null>(null);

@@ -1,15 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import axios, { AxiosPromise } from "axios";
+import { MovieData } from "../types";
 
 const API_URL = "https://api.themoviedb.org/3/";
 const API_KEY = import.meta.env.VITE_API_KEY;
-
-interface MovieData {
-  page: number;
-  results: [];
-  total_pages: number;
-  total_results: number;
-}
 
 async function getMovies(
   language: string,

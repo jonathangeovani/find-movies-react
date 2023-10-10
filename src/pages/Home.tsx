@@ -3,17 +3,7 @@ import { SearchInput, SearchResults } from "../components";
 import { MoviesContainer, Pagination } from "../components";
 import { useMovies } from "../hooks/useMovies";
 import { useAppContext } from "../hooks/useAppContext";
-
-interface HomeContextContent {
-  searchTerm: string;
-  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
-  currentPage: number;
-  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
-  movies: [] | undefined;
-  totalPages: number | undefined;
-  totalResults: number | undefined;
-  refetch: () => void;
-}
+import { HomeContextContent } from "../types";
 
 export const HomeContext = createContext<HomeContextContent | null>(null);
 
