@@ -1,10 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { About, Home, PageNotFound } from "./pages";
 import { Footer, Nav } from "./components";
 import "./App.css";
 
+interface AppContextContent {
+  language: string;
+  setLanguage: React.Dispatch<React.SetStateAction<string>>;
+}
+
 let storedLanguage = localStorage.getItem("LANG");
+export const AppContext = createContext<AppContextContent | null>(null);
 
 const App = () => {
   const [language, setLanguage] = storedLanguage
@@ -16,17 +22,19 @@ const App = () => {
   }, [language]);
 
   return (
-    <Router>
-      <Nav language={language} setLanguage={setLanguage} />
-      <main className="app">
-        <Routes>
-          <Route path="/" element={<Home language={language} />} />
-          <Route path="/about" element={<About language={language} />} />
-          <Route path="/*" element={<PageNotFound />} />
-        </Routes>
-      </main>
-      <Footer language={language} />
-    </Router>
+    <AppContext.Provider value={{ language, setLanguage }}>
+      <Router>
+        <Nav />
+        <main className="app">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/*" element={<PageNotFound />} />
+          </Routes>
+        </main>
+        <Footer />
+      </Router>
+    </AppContext.Provider>
   );
 };
 

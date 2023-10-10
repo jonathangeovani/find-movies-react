@@ -1,27 +1,21 @@
 import { Link } from "react-router-dom";
+import { useAppContext } from "../hooks/useAppContext";
 
-interface NavProps {
-  language: string;
-  setLanguage: (newLanguage: string) => void;
-}
-
-export default function Nav(props: NavProps) {
+export default function Nav() {
+  const { language, setLanguage } = useAppContext();
   return (
     <nav>
-      {props.language === "pt-BR" ? (
+      {language === "pt-BR" ? (
         <div className="languages">
           <span
             onClick={() => {
-              props.setLanguage("en-US");
+              setLanguage("en-US");
             }}
           >
             EN
           </span>
           |
-          <span
-            className="activated"
-            onClick={() => props.setLanguage("pt-BR")}
-          >
+          <span className="activated" onClick={() => setLanguage("pt-BR")}>
             BR
           </span>
         </div>
@@ -30,15 +24,15 @@ export default function Nav(props: NavProps) {
           <span
             className="activated"
             onClick={() => {
-              props.setLanguage("en-US");
+              setLanguage("en-US");
             }}
           >
             EN
           </span>
-          |<span onClick={() => props.setLanguage("pt-BR")}>BR</span>
+          |<span onClick={() => setLanguage("pt-BR")}>BR</span>
         </div>
       )}
-      {props.language === "pt-BR" ? (
+      {language === "pt-BR" ? (
         <div className="nav-links">
           <Link to="/">Página Inicial</Link>
           <Link to="/about">Sobre</Link>

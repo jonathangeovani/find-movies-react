@@ -1,11 +1,11 @@
-interface FooterProps {
-  language: string;
-}
+import { useAppContext } from "../hooks/useAppContext";
 
-export default function Footer(props: FooterProps) {
+export default function Footer() {
+  const { language } = useAppContext();
+
   return (
     <footer>
-      {props.language == "pt-BR" ? (
+      {language == "pt-BR" ? (
         <p>Desenvolvido por Jonathan Geovani | 2023</p>
       ) : (
         <p>Developed by Jonathan Geovani | 2023</p>

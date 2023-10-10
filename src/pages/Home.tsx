@@ -2,14 +2,12 @@ import { useEffect, useState } from "react";
 import { SearchInput, SearchResults } from "../components";
 import { MoviesContainer, Pagination } from "../components";
 import { useMovies } from "../hooks/useMovies";
+import { useAppContext } from "../hooks/useAppContext";
 
-interface HomeProps {
-  language: string;
-}
-
-const Home = ({ language }: HomeProps) => {
+const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const { language } = useAppContext();
   const { movies, totalPages, totalResults, refetch } = useMovies(
     language,
     searchTerm,

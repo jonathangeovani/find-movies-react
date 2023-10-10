@@ -1,8 +1,8 @@
-interface AboutProps {
-  language: string;
-}
+import { useAppContext } from "../hooks/useAppContext";
 
-const About = ({ language }: AboutProps) => {
+const About = () => {
+  const { language } = useAppContext();
+
   return (
     <>
       {language === "pt-BR" ? (
