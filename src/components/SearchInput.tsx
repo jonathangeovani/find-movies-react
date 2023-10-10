@@ -5,8 +5,7 @@ interface SearchInputProps {
   setSearchTerm: (value: string) => void;
   currentPage: number;
   setCurrentPage: (prevPage: number) => void;
-  searchMovies: (title: string) => void;
-  searchTotalPages: (title: string) => void;
+  searchMovies: () => void;
 }
 
 export default function SearchInput(props: SearchInputProps) {
@@ -21,9 +20,8 @@ export default function SearchInput(props: SearchInputProps) {
         }}
         onKeyDown={(e) => {
           if (e.key === "Enter") {
-            props.searchMovies(props.searchTerm);
-            props.searchTotalPages(props.searchTerm);
             props.setCurrentPage(1);
+            props.searchMovies();
           }
         }}
       />
@@ -31,9 +29,8 @@ export default function SearchInput(props: SearchInputProps) {
         src={SearchIcon}
         alt="Search"
         onClick={() => {
-          props.searchMovies(props.searchTerm);
-          props.searchTotalPages(props.searchTerm);
           props.setCurrentPage(1);
+          props.searchMovies();
         }}
       />
     </div>

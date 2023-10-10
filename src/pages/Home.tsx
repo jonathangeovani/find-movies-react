@@ -3,53 +3,29 @@ import SearchInput from "../components/SearchInput";
 import SearchResults from "../components/SearchResults";
 import MoviesContainer from "../components/MoviesContainer";
 import Pagination from "../components/Pagination";
-
-const API_KEY = import.meta.env.VITE_API_KEY;
-
-const API_URL = `https://api.themoviedb.org/3/`;
+import { useMovies } from "../hooks/useMovies";
 
 interface HomeProps {
   language: string;
 }
 
 const Home = ({ language }: HomeProps) => {
-  const [movies, setMovies] = useState([]);
-  const [totalResults, setTotalResults] = useState(0);
-  const [totalPages, setTotalPages] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-
-  const searchMovies = async (title: string, page = 1) => {
-    const finalUrl =
-      title !== ""
-        ? `${API_URL}search/movie?query=${title}&language=${language}&page=${page}&api_key=${API_KEY}`
-        : `${API_URL}discover/movie?with_genres=10751&language=${language}&page=${page}&api_key=${API_KEY}`;
-    const response = await fetch(finalUrl);
-    const data = await response.json();
-    setMovies(data.results);
-  };
-
-  const searchTotalPages = async (title: string) => {
-    const finalUrl =
-      title !== ""
-        ? `${API_URL}search/movie?query=${title}&language=${language}&page=1&api_key=${API_KEY}`
-        : `${API_URL}discover/movie?with_genres=10751&language=${language}&page=1&api_key=${API_KEY}`;
-    const response = await fetch(finalUrl);
-    const data = await response.json();
-    setTotalPages(data.total_pages);
-    setTotalResults(data.total_results);
-  };
-
-  function getNextPage(page: number) {
-    searchMovies(searchTerm, page);
-    window.scrollTo(0, 0);
-    setCurrentPage(page);
-  }
+  const { movies, totalPages, totalResults, refetch } = useMovies(
+    language,
+    searchTerm,
+    currentPage
+  );
 
   useEffect(() => {
-    searchMovies(searchTerm);
-    searchTotalPages(searchTerm);
+    refetch();
   }, [language]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
+
   return (
     <>
       <h1>Find Movies</h1>
@@ -58,17 +34,19 @@ const Home = ({ language }: HomeProps) => {
         setSearchTerm={setSearchTerm}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
-        searchMovies={searchMovies}
-        searchTotalPages={searchTotalPages}
+        searchMovies={refetch}
       />
-      <SearchResults language={language} totalResults={totalResults} />
-      <MoviesContainer movies={movies} />
+      <SearchResults
+        language={language}
+        totalResults={totalResults ? totalResults : 0}
+      />
+      <MoviesContainer movies={movies ? movies : []} />
       <Pagination
         currentPage={currentPage}
-        totalPages={totalPages}
-        totalResults={totalResults}
+        totalPages={totalPages ? totalPages : 0}
+        totalResults={totalResults ? totalResults : 0}
         language={language}
-        getNextPage={getNextPage}
+        setCurrentPage={setCurrentPage}
       />
     </>
   );

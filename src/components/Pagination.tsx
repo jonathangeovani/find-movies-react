@@ -3,7 +3,7 @@ interface PaginationProps {
   totalPages: number;
   totalResults: number;
   language: string;
-  getNextPage: (page: number) => void;
+  setCurrentPage: (page: number) => void;
 }
 
 export default function Pagination(props: PaginationProps) {
@@ -13,7 +13,7 @@ export default function Pagination(props: PaginationProps) {
         <span
           className="arrow"
           onClick={() => {
-            props.getNextPage(props.currentPage - 1);
+            props.setCurrentPage(props.currentPage - 1);
           }}
         >
           &lt;
@@ -30,7 +30,7 @@ export default function Pagination(props: PaginationProps) {
         <span
           className="arrow"
           onClick={() => {
-            props.getNextPage(props.currentPage + 1);
+            props.setCurrentPage(props.currentPage + 1);
           }}
         >
           &gt;
