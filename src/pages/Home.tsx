@@ -14,7 +14,7 @@ const Home = ({ title }: HomeProps) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const { language } = useAppContext();
-  const { movies, totalPages, totalResults, refetch } = useMovies(
+  const { movies, totalPages, totalResults, isFetching, refetch } = useMovies(
     language,
     searchTerm,
     currentPage
@@ -39,14 +39,15 @@ const Home = ({ title }: HomeProps) => {
         movies,
         totalPages,
         totalResults,
+        isFetching,
         refetch,
       }}
     >
       <h1>{title} &nbsp;</h1>
       <SearchInput />
       <SearchResults />
-      <MoviesContainer />
-      <Pagination />
+      {!isFetching && <MoviesContainer />}
+      {!isFetching && <Pagination />}
     </HomeContext.Provider>
   );
 };

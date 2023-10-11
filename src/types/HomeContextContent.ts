@@ -6,5 +6,6 @@ export type HomeContextContent = {
   movies: [] | undefined;
   totalPages: number | undefined;
   totalResults: number | undefined;
+  isFetching: boolean;
   refetch: () => void;
 };
