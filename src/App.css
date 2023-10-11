@@ -299,7 +299,7 @@ h1 {
   margin: .2rem 0 1rem;
 }
 
-.movie-content p, .movie-content h2, .movie-cast h2, .cast-people p {
+.movie-content p, .movie-content h2, .movie-trailer-button, .movie-cast h2, .cast-people p {
   color: #f0f0f0;
   text-shadow: 0 0 3px #1c1d1f;
   line-height: 150%;
@@ -307,6 +307,22 @@ h1 {
 
 .movie-content h2, .movie-cast h2 {
   margin-bottom: .2rem;
+}
+
+.movie-trailer-button {
+  margin-top: 2rem;
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: right;
+  font-family: inherit;
+  font-size: inherit;
+
+  cursor: pointer;
+  transition: color .2s;
+}
+.movie-trailer-button:hover {
+  color: #a1a1a1;
 }
 
 .movie-cast {
@@ -390,6 +406,52 @@ footer {
   
   display: flex;
   justify-content: center;
+}
+
+.movie-trailer-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 298;
+  width: 100%;
+  height: 100%;
+  background: #1c1d1fb2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-close-modal-container {
+  max-width: 720px;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: #000;
+  font-size: 1.2rem;
+  color: #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-close-modal {
+  width: 2.2rem;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  font-size: 2rem;
+  color: #f0f0f0;
+
+  cursor: pointer;
+  transition: background .2s;
+}
+
+.btn-close-modal:hover {
+  background: #1c1d1f;
+}
+
+.movie-trailer-video {
+  width: 720px;
+  height: 420px;
 }
 
 /* width */

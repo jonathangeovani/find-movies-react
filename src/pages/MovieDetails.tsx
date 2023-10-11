@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import { useMovieDetails } from "../hooks/useMovieDetails";
 import { useAppContext } from "../hooks/useAppContext";
 import { useMovieCredits } from "../hooks/useMovieCredits";
+import { MovieTrailer } from "../components";
+import { useState } from "react";
 
 export default function MovieDetails() {
   const { movieId } = useParams();
@@ -9,6 +11,7 @@ export default function MovieDetails() {
   const { banner, poster, title, year, categories, duration, overview } =
     useMovieDetails(movieId!, language);
   const { cast } = useMovieCredits(movieId!, language);
+  const [displayTrailerModal, setDisplayTrailerModal] = useState(false);
 
   return (
     <>
@@ -47,6 +50,13 @@ export default function MovieDetails() {
           </p>
           <h2>Sinopse</h2>
           <p className="movie-description">&nbsp;&nbsp;{overview}</p>
+          <button
+            className="movie-trailer-button"
+            onClick={() => setDisplayTrailerModal((prev) => !prev)}
+          >
+            &#9654;&nbsp;
+            {language == "pt-BR" ? " Reproduzir Trailer" : " Play Trailer"}
+          </button>
         </div>
       </div>
       <div className="movie-cast">
@@ -71,6 +81,9 @@ export default function MovieDetails() {
           ))}
         </div>
       </div>
+      {displayTrailerModal && (
+        <MovieTrailer setDisplayTrailerModal={setDisplayTrailerModal} />
+      )}
     </>
   );
 }
