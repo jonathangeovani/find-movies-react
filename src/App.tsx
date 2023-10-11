@@ -1,10 +1,9 @@
 import { useEffect, useState, createContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { About, Home, PageNotFound } from "./pages";
+import { About, Home, PageNotFound, MovieDetails } from "./pages";
 import { Footer, Nav } from "./components";
 import "./App.css";
 import { AppContextContent } from "./types";
-import MovieDetails from "./pages/MovieDetails";
 
 let storedLanguage = localStorage.getItem("LANG");
 export const AppContext = createContext<AppContextContent | null>(null);
