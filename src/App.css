@@ -309,12 +309,15 @@ h1 {
   margin-bottom: .2rem;
 }
 
-.movie-trailer-button {
+.movie-trailer-button-container {
   margin-top: 2rem;
   width: 100%;
+  text-align: right;
+}
+
+.movie-trailer-button {
   background: none;
   border: none;
-  text-align: right;
   font-family: inherit;
   font-size: inherit;
 
