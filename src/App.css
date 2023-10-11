@@ -453,7 +453,8 @@ footer {
 }
 
 .movie-trailer-video {
-  width: 720px;
+  max-width: 720px;
+  width: 100%;
   height: 420px;
 }
 
