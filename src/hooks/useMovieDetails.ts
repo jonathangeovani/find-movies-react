@@ -31,5 +31,6 @@ export function useMovieDetails(movieId: string, language: string) {
     duration: query.data?.data.runtime,
     overview: query.data?.data.overview,
     detailsIsFetching: query.isFetching,
+    refetchDetails: query.refetch,
   };
 }

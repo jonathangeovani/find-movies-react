@@ -27,5 +27,6 @@ export function useMovieTrailer(movieId: string, language = "") {
     ...query,
     id: query.data?.data.id,
     results: query.data?.data.results,
+    refetchTrailer: query.refetch,
   };
 }

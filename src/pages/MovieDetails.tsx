@@ -1,8 +1,8 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAppContext } from "../hooks";
 import { useMovieDetails, useMovieTrailer, useMovieCredits } from "../hooks";
 import { MovieTrailer } from "../components";
-import { useState } from "react";
 
 export default function MovieDetails() {
   const { movieId } = useParams();
@@ -16,10 +16,17 @@ export default function MovieDetails() {
     duration,
     overview,
     detailsIsFetching,
+    refetchDetails,
   } = useMovieDetails(movieId!, language);
   const { cast, creditsIsFetching } = useMovieCredits(movieId!, language);
-  const { results } = useMovieTrailer(movieId!, language);
+  const { results, refetchTrailer } = useMovieTrailer(movieId!, language);
+
   const [displayTrailerModal, setDisplayTrailerModal] = useState(false);
+
+  useEffect(() => {
+    refetchDetails();
+    refetchTrailer();
+  }, [language]);
 
   return (
     <>
