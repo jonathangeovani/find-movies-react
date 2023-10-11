@@ -1,10 +1,8 @@
 import { useParams } from "react-router-dom";
-import { useMovieDetails } from "../hooks/useMovieDetails";
-import { useAppContext } from "../hooks/useAppContext";
-import { useMovieCredits } from "../hooks/useMovieCredits";
+import { useAppContext } from "../hooks";
+import { useMovieDetails, useMovieTrailer, useMovieCredits } from "../hooks";
 import { MovieTrailer } from "../components";
 import { useState } from "react";
-import { useMovieTrailer } from "../hooks/useMovieTrailer";
 
 export default function MovieDetails() {
   const { movieId } = useParams();

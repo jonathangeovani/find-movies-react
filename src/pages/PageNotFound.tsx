@@ -1,4 +1,4 @@
-import { useAppContext } from "../hooks/useAppContext";
+import { useAppContext } from "../hooks";
 
 export default function PageNotFound() {
   const { language } = useAppContext();

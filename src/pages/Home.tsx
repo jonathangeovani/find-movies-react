@@ -1,8 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { SearchInput, SearchResults } from "../components";
 import { MoviesContainer, Pagination } from "../components";
-import { useMovies } from "../hooks/useMovies";
-import { useAppContext } from "../hooks/useAppContext";
+import { useMovies, useAppContext } from "../hooks";
 import { HomeContextContent } from "../types";
 
 export const HomeContext = createContext<HomeContextContent | null>(null);
