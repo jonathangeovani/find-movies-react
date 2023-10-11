@@ -299,7 +299,7 @@ h1 {
   margin: .2rem 0 1rem;
 }
 
-.movie-content p, .movie-content h2, .movie-trailer-button, .movie-cast h2, .cast-people p {
+.movie-content p, .movie-details-container h2, .movie-trailer-button, .movie-cast h2, .cast-people p {
   color: #f0f0f0;
   text-shadow: 0 0 3px #1c1d1f;
   line-height: 150%;

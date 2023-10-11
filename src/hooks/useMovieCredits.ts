@@ -25,5 +25,6 @@ export function useMovieCredits(movieId: string, language: string) {
     ...query,
     cast: query.data?.data.cast,
     crew: query.data?.data.crew,
+    creditsIsFetching: query.isFetching,
   };
 }

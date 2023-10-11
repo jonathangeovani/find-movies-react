@@ -30,5 +30,6 @@ export function useMovieDetails(movieId: string, language: string) {
     categories: query.data?.data.genres,
     duration: query.data?.data.runtime,
     overview: query.data?.data.overview,
+    detailsIsFetching: query.isFetching,
   };
 }
