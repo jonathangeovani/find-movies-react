@@ -21,7 +21,8 @@ export default function MovieTrailer({
         </div>
         <iframe
           className="movie-trailer-video"
-          src={"https://www.youtube.com/embed/" + trailerKey}
+          src={`https://www.youtube.com/embed/${trailerKey}`}
+          allowFullScreen
         ></iframe>
       </div>
     </>
