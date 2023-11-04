@@ -2,7 +2,7 @@ import { useAppContext, useHomeContext } from "../hooks";
 
 export default function Pagination() {
   const { language } = useAppContext();
-  const { currentPage, setCurrentPage, totalResults, totalPages } =
+  const { currentPage, setSearchParams, totalResults, totalPages } =
     useHomeContext();
 
   return (
@@ -11,7 +11,10 @@ export default function Pagination() {
         <span
           className="arrow"
           onClick={() => {
-            setCurrentPage(currentPage - 1);
+            setSearchParams((prev) => {
+              prev.set("p", (currentPage - 1).toString());
+              return prev;
+            });
           }}
         >
           &lt;
@@ -28,7 +31,10 @@ export default function Pagination() {
         <span
           className="arrow"
           onClick={() => {
-            setCurrentPage(currentPage + 1);
+            setSearchParams((prev) => {
+              prev.set("p", (currentPage + 1).toString());
+              return prev;
+            });
           }}
         >
           &gt;

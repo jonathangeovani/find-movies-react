@@ -1,8 +1,9 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect } from "react";
 import { SearchInput, SearchResults } from "../components";
 import { MoviesContainer, Pagination } from "../components";
 import { useMovies, useAppContext } from "../hooks";
 import { HomeContextContent } from "../types";
+import { useSearchParams } from "react-router-dom";
 
 export const HomeContext = createContext<HomeContextContent | null>(null);
 
@@ -11,12 +12,13 @@ interface HomeProps {
 }
 
 const Home = ({ title }: HomeProps) => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
+  const [searchParams, setSearchParams] = useSearchParams({ q: "", p: "1" });
+  const searchTerm = searchParams.get("q");
+  const currentPage = Number(searchParams.get("p") || 1);
   const { language } = useAppContext();
   const { movies, totalPages, totalResults, isFetching, refetch } = useMovies(
     language,
-    searchTerm,
+    searchTerm || "",
     currentPage
   );
 
@@ -33,9 +35,8 @@ const Home = ({ title }: HomeProps) => {
     <HomeContext.Provider
       value={{
         searchTerm,
-        setSearchTerm,
+        setSearchParams,
         currentPage,
-        setCurrentPage,
         movies,
         totalPages,
         totalResults,

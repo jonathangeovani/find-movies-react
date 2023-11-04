@@ -2,20 +2,31 @@ import SearchIcon from "../assets/search.svg";
 import { useHomeContext } from "../hooks";
 
 export default function SearchInput() {
-  const { searchTerm, setSearchTerm, setCurrentPage, refetch } =
-    useHomeContext();
+  const { searchTerm, setSearchParams, refetch } = useHomeContext();
   return (
     <div className="search">
       <input
         type="text"
         placeholder="Search for movies"
-        value={searchTerm}
+        value={searchTerm || ""}
         onChange={(newSearchTerm) => {
-          setSearchTerm(newSearchTerm.target.value);
+          setSearchParams(
+            (prev) => {
+              prev.set("q", newSearchTerm.target.value);
+              return prev;
+            },
+            { replace: true }
+          );
         }}
         onKeyDown={(e) => {
           if (e.key === "Enter") {
-            setCurrentPage(1);
+            setSearchParams(
+              (prev) => {
+                prev.set("p", "1");
+                return prev;
+              },
+              { replace: true }
+            );
             refetch();
           }
         }}
@@ -24,7 +35,13 @@ export default function SearchInput() {
         src={SearchIcon}
         alt="Search"
         onClick={() => {
-          setCurrentPage(1);
+          setSearchParams(
+            (prev) => {
+              prev.set("p", "1");
+              return prev;
+            },
+            { replace: true }
+          );
           refetch();
         }}
       />

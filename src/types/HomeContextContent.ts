@@ -1,8 +1,10 @@
+import { SetURLSearchParams } from "react-router-dom";
+
 export type HomeContextContent = {
-  searchTerm: string;
-  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+  searchTerm: string | null;
+  setSearchParams: SetURLSearchParams;
   currentPage: number;
-  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+  // setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
   movies: [] | undefined;
   totalPages: number | undefined;
   totalResults: number | undefined;
