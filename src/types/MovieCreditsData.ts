@@ -2,6 +2,7 @@ export type MovieCreditsData = {
   id: number;
   cast: [
     {
+      id: number;
       name: string;
       profile_path: string;
       character: string;

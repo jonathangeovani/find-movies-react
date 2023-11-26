@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../hooks";
 import { useMovieDetails, useMovieTrailer, useMovieCredits } from "../hooks";
 import { MovieTrailer } from "../components";
 
 export default function MovieDetails() {
+  const navigate = useNavigate();
   const { movieId } = useParams();
   const { language } = useAppContext();
   const {
@@ -105,11 +107,19 @@ export default function MovieDetails() {
                       : "https://placehold.co/150x225"
                   }
                   alt={person.name}
+                  onClick={() => navigate("/person/" + person.id)}
                 />
                 <p>
-                  {person.name}
+                  <span
+                    className="cast-person-name"
+                    onClick={() => navigate("/person/" + person.id)}
+                  >
+                    {person.name}
+                  </span>
                   <br />
-                  <span className="cast-person-name">{person.character}</span>
+                  <span className="cast-person-character">
+                    {person.character}
+                  </span>
                 </p>
               </div>
             ))}

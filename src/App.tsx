@@ -1,6 +1,12 @@
 import { useEffect, useState, createContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { About, Home, PageNotFound, MovieDetails } from "./pages";
+import {
+  About,
+  Home,
+  PageNotFound,
+  MovieDetails,
+  PersonDetails,
+} from "./pages";
 import { Footer, Nav } from "./components";
 import "./App.css";
 import { AppContextContent } from "./types";
@@ -26,6 +32,7 @@ const App = () => {
             <Route path="/" element={<Home title={"Find Movies"} />} />
             <Route path="/about" element={<About />} />
             <Route path="/movie/:movieId" element={<MovieDetails />} />
+            <Route path="/person/:personId" element={<PersonDetails />} />
             <Route path="/*" element={<PageNotFound />} />
           </Routes>
         </main>
