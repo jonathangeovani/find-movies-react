@@ -43,6 +43,7 @@ export default function MovieDetails() {
                 : "https://placehold.co/720x480"
             }
             alt="Banner"
+            loading="lazy"
           />
           <img
             className="movie-poster"
@@ -52,6 +53,7 @@ export default function MovieDetails() {
                 : "https://placehold.co/250x400"
             }
             alt={title}
+            loading="lazy"
           />
           <div className="movie-content">
             <h1>{title}</h1>
@@ -108,6 +110,7 @@ export default function MovieDetails() {
                       : "https://placehold.co/150x225"
                   }
                   alt={person.name}
+                  loading="lazy"
                   onClick={() => navigate("/person/" + person.id)}
                 />
                 <p>

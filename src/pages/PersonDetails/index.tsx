@@ -57,6 +57,7 @@ export default function PersonDetails() {
                 : "https://placehold.co/250x400"
             }
             alt={name}
+            loading="lazy"
           />
           <div className="person-content">
             <h1>{name}</h1>
@@ -115,6 +116,7 @@ export default function PersonDetails() {
                           : "https://placehold.co/150x225"
                       }
                       alt={movie.title}
+                      loading="lazy"
                       onClick={() => navigate("/movie/" + movie.id)}
                     />
                     <p>

@@ -25,6 +25,7 @@ const MovieCard = ({ Title, Year, Vote, Poster, imdbID }: MovieCardProps) => {
               : "https://via.placeholder.com/300x400"
           }
           alt={Title}
+          loading="lazy"
         />
       </div>
       <div>
