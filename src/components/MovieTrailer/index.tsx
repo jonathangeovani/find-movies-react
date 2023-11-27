@@ -1,3 +1,5 @@
+import "./style.scss";
+
 interface MovieTrilerProps {
   trailerKey: string;
   setDisplayTrailerModal: (value: boolean) => void;

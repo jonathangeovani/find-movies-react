@@ -1,4 +1,5 @@
 import { useAppContext } from "../../hooks";
+import "./style.scss";
 
 export default function Footer() {
   const { language } = useAppContext();

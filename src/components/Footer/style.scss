@@ -1,0 +1,18 @@
+footer {
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  padding: 1.5rem;
+  width: 100%;
+  background-color: #1c1d1f;
+  color: #f9d3b4;
+
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 400px) {
+  footer {
+    font-size: .9em;
+  }
+}

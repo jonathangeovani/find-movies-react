@@ -1,4 +1,5 @@
 import { useAppContext, useHomeContext } from "../../hooks";
+import "./style.scss";
 
 export default function SearchResults() {
   const { language } = useAppContext();

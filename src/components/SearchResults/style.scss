@@ -1,0 +1,28 @@
+@import '../../variables';
+
+.search-results {
+    width: 100%;
+    margin-top: 2rem;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+        font-size: 1.25rem;
+        color: #f9d3b4;
+        font-family: $font-raleway;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .search-results {
+        margin-top: 1rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .search-results {
+        margin-top: 1rem;
+    }
+  }

@@ -1,0 +1,27 @@
+@import '../../variables';
+
+.pagination {
+    margin: 1.5rem 0 3.5rem;
+
+    span.arrow, span.page-index {
+        padding: 1rem;
+        color: #f9d3b4;
+        font-family: $font-raleway;
+    }
+
+    span.arrow {
+        font-weight: 800;
+        font-size: 2rem;
+        cursor: pointer;
+
+        &:hover {
+            color: #9a826f;
+        }
+    }
+
+    span.page-index {
+        font-weight: 500;
+        font-size: 1.7rem;
+        cursor: default;
+    }
+}

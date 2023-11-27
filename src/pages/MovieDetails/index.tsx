@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../../hooks";
 import { useMovieDetails, useMovieTrailer, useMovieCredits } from "../../hooks";
 import { MovieTrailer } from "../../components";
+import "./style.scss";
 
 export default function MovieDetails() {
   const navigate = useNavigate();

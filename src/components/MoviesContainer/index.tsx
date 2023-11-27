@@ -1,5 +1,6 @@
 import { MovieCard } from "..";
 import { useHomeContext } from "../../hooks";
+import "./style.scss";
 
 export default function MoviesContainer() {
   const { movies } = useHomeContext();

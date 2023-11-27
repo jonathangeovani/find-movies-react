@@ -3,3 +3,22 @@
     min-height: 100dvh;
     min-height: 100vh;
 }
+
+/* CUSTOM SCROLLBAR */
+::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: none; 
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }

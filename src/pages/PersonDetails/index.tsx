@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAppContext } from "../../hooks";
 import { usePersonDetails, usePersonMovies } from "../../hooks";
+import "./style.scss";
 
 enum EnGenderCodes {
   "Not Specified",
@@ -47,9 +48,9 @@ export default function PersonDetails() {
   return (
     <>
       {!detailsIsFetching ? (
-        <div className="movie-details-container">
+        <div className="person-details-container">
           <img
-            className="movie-poster"
+            className="person-poster"
             src={
               profile
                 ? "https://image.tmdb.org/t/p/w500/" + profile
@@ -57,9 +58,9 @@ export default function PersonDetails() {
             }
             alt={name}
           />
-          <div className="movie-content">
+          <div className="person-content">
             <h1>{name}</h1>
-            <p className="movie-facts">
+            <p className="person-facts">
               <span>
                 {language == "pt-BR"
                   ? BrGenderCodes[gender!]
@@ -83,7 +84,7 @@ export default function PersonDetails() {
               </span>
             </p>
             <h2>{language == "pt-BR" ? "Biografia" : "Biography"}</h2>
-            <p className="movie-description">
+            <p className="person-description">
               &nbsp;&nbsp;
               {biography
                 ? biography
@@ -94,18 +95,18 @@ export default function PersonDetails() {
           </div>
         </div>
       ) : (
-        <div className="movie-details-container">
+        <div className="person-details-container">
           <h2>{language == "pt-BR" ? "Carregando..." : "Loading..."}</h2>
         </div>
       )}
       {!moviesIsFetching && (
-        <div className="movie-cast">
+        <div className="person-cast">
           <h2>{language == "pt-BR" ? "Conhecido por" : "Known for"}</h2>
-          <div className="cast-people">
+          <div className="cast-movies">
             {cast?.map((movie, index) => {
               if (index < 20)
                 return (
-                  <div className="cast-person" key={movie.id}>
+                  <div className="cast-movie" key={movie.id}>
                     <img
                       src={
                         movie.poster_path
@@ -118,13 +119,13 @@ export default function PersonDetails() {
                     />
                     <p>
                       <span
-                        className="cast-person-name"
+                        className="cast-movie-title"
                         onClick={() => navigate("/movie/" + movie.id)}
                       >
                         {movie.title}
                       </span>
                       <br />
-                      <span className="cast-person-character">
+                      <span className="cast-movie-release">
                         {movie.release_date}
                       </span>
                     </p>

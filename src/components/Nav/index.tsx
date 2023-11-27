@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAppContext } from "../../hooks";
+import "./style.scss";
 
 export default function Nav() {
   const { language, setLanguage } = useAppContext();

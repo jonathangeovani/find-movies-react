@@ -1,5 +1,6 @@
 import SearchIcon from "../../assets/search.svg";
 import { useHomeContext } from "../../hooks";
+import "./style.scss";
 
 export default function SearchInput() {
   const { searchTerm, setSearchParams, refetch } = useHomeContext();
