@@ -8,7 +8,7 @@ import {
   PersonDetails,
 } from "./pages";
 import { Footer, Nav } from "./components";
-import "./App.css";
+import "./App.scss";
 import { AppContextContent } from "./types";
 
 let storedLanguage = localStorage.getItem("LANG");
