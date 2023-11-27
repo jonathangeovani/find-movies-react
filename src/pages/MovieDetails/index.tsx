@@ -39,7 +39,7 @@ export default function MovieDetails() {
             className="movie-banner"
             src={
               banner
-                ? "https://image.tmdb.org/t/p/w500/" + banner
+                ? "https://image.tmdb.org/t/p/w1280/" + banner
                 : "https://placehold.co/720x480"
             }
             alt="Banner"
