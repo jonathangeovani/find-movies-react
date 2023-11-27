@@ -1,5 +1,5 @@
-import { MovieCard } from "../components";
-import { useHomeContext } from "../hooks";
+import { MovieCard } from "..";
+import { useHomeContext } from "../../hooks";
 
 export default function MoviesContainer() {
   const { movies } = useHomeContext();

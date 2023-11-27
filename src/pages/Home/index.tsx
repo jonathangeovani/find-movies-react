@@ -1,8 +1,8 @@
 import { createContext, useEffect } from "react";
-import { SearchInput, SearchResults } from "../components";
-import { MoviesContainer, Pagination } from "../components";
-import { useMovies, useAppContext } from "../hooks";
-import { HomeContextContent } from "../types";
+import { SearchInput, SearchResults } from "../../components";
+import { MoviesContainer, Pagination } from "../../components";
+import { useMovies, useAppContext } from "../../hooks";
+import { HomeContextContent } from "../../types";
 import { useSearchParams } from "react-router-dom";
 
 export const HomeContext = createContext<HomeContextContent | null>(null);

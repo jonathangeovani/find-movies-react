@@ -1,4 +1,4 @@
-import { useAppContext } from "../hooks";
+import { useAppContext } from "../../hooks";
 
 const About = () => {
   const { language } = useAppContext();

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useAppContext } from "../hooks";
-import { usePersonDetails, usePersonMovies } from "../hooks";
+import { useAppContext } from "../../hooks";
+import { usePersonDetails, usePersonMovies } from "../../hooks";
 
 enum EnGenderCodes {
   "Not Specified",

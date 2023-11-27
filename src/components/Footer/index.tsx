@@ -1,4 +1,4 @@
-import { useAppContext } from "../hooks";
+import { useAppContext } from "../../hooks";
 
 export default function Footer() {
   const { language } = useAppContext();

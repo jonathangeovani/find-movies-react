@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useAppContext } from "../hooks";
-import { useMovieDetails, useMovieTrailer, useMovieCredits } from "../hooks";
-import { MovieTrailer } from "../components";
+import { useAppContext } from "../../hooks";
+import { useMovieDetails, useMovieTrailer, useMovieCredits } from "../../hooks";
+import { MovieTrailer } from "../../components";
 
 export default function MovieDetails() {
   const navigate = useNavigate();

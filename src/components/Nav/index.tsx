@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useAppContext } from "../hooks";
+import { useAppContext } from "../../hooks";
 
 export default function Nav() {
   const { language, setLanguage } = useAppContext();

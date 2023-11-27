@@ -1,4 +1,4 @@
-import { useAppContext, useHomeContext } from "../hooks";
+import { useAppContext, useHomeContext } from "../../hooks";
 
 export default function Pagination() {
   const { language } = useAppContext();
