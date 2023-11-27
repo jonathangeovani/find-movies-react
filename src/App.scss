@@ -37,10 +37,29 @@ h1 {
   width: fit-content;
 }
 
+.container {
+  width: 100%;
+  margin-top: 2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .links {
+      color: #f9d3b4;
+      text-decoration: none;
+  }
+}
+
 @media screen and (max-width: 700px) {
   .app {
     padding: 2rem 2rem 4rem 2rem;
   }
+
+  .container {
+    margin-top: 1rem;
+}
 }
 
 @media screen and (max-width: 400px) {
@@ -52,4 +71,8 @@ h1 {
     padding-top: 2rem;
     font-size: 2rem;
   }
+
+  .container {
+    margin-top: 1rem;
+}
 }
