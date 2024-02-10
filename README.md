@@ -1,9 +1,10 @@
 # Find Movies React
 
-<figure align="center">
-    <img src="public/images/home_screenshot.png" alt="Movie example screenshot" width="360" style="margin-top:20px">
-    <figcaption>Home Page Screenshot</figcaption>
-</figure>
+<p align="center">
+    <img src="public/images/home_screenshot.png" alt="Movie example screenshot" width="360">
+    <br/>
+    Home Page Screenshot
+</p>
 
 Find Movies is a a movie search website developed in React.js that allows users to search for information about their favorite movies. The application consumes data from [The Movie Database API (TMDb)](https://developer.themoviedb.org/docs) API to provide accurate and up-to-date movie details.
 
@@ -23,10 +24,12 @@ Check the app: [Find Movies React](https://find-movies-react.netlify.app)
 - **Multiple Languages**: Can choose between English and Portuguese.
 - **Responsive Design**: The application is designed to be responsive and work on mobile devices, tablets, and desktops.
 
-<figure align="center">
-    <img src="public/images/movie_example_screenshot.png" alt="Movie example screenshot" width="360" style="margin-top:20px">
-    <figcaption>Movie Details Page Screenshot</figcaption>
-</figure>
+<p align="center">
+    <br />
+    <img src="public/images/movie_example_screenshot.png" alt="Movie example screenshot" width="360" style="margin-top:20">
+    <br/>
+    Movie Details Page Screenshot
+</p>
 
 ## Technologies Used
 
