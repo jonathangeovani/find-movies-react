@@ -18,7 +18,7 @@ export default function SearchResults() {
           <h2>
             {language === "pt-BR"
               ? "Nenhum filme encontrado"
-              : "No moive found"}
+              : "No movie found"}
           </h2>
         )
       ) : (
