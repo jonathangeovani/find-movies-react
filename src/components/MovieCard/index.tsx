@@ -29,7 +29,7 @@ const MovieCard = ({ Title, Year, Vote, Poster, imdbID }: MovieCardProps) => {
         />
       </div>
       <div>
-        <span>{Year.slice(0, 4)}</span>
+        <span title="Release Year">{Year.slice(0, 4)}</span>
         <h3>{Title}</h3>
       </div>
     </div>
