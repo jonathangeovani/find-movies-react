@@ -10,6 +10,7 @@ export default function Pagination() {
     <div className="pagination">
       {currentPage > 1 && (
         <span
+          title="Previous Page"
           className="arrow"
           onClick={() => {
             setSearchParams((prev) => {
@@ -22,7 +23,7 @@ export default function Pagination() {
         </span>
       )}
       {totalResults! > 0 && (
-        <span className="page-index">
+        <span title="Current Page" className="page-index">
           {currentPage}
           {language === "pt-BR" ? " de " : " of "}
           {totalPages}
@@ -30,6 +31,7 @@ export default function Pagination() {
       )}
       {totalPages! > 1 && totalPages! > currentPage && (
         <span
+          title="Next Page"
           className="arrow"
           onClick={() => {
             setSearchParams((prev) => {
