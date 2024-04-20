@@ -56,7 +56,7 @@ export default function MovieDetails() {
             loading="lazy"
           />
           <div className="movie-content">
-            <h1>{title}</h1>
+            <h2>{title}</h2>
             <p className="movie-facts">
               <span>{year ? year : "No information"}</span>&nbsp;&bull;
               <span>
@@ -69,7 +69,7 @@ export default function MovieDetails() {
                   : "0min"}
               </span>
             </p>
-            <h2>Sinopse</h2>
+            <h3>Sinopse</h3>
             <p className="movie-description">&nbsp;&nbsp;{overview}</p>
             <div className="movie-trailer-button-container">
               {results !== undefined && results!.length > 0 ? (
