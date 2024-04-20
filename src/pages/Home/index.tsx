@@ -7,11 +7,7 @@ import { useSearchParams } from "react-router-dom";
 
 export const HomeContext = createContext<HomeContextContent | null>(null);
 
-interface HomeProps {
-  title: string;
-}
-
-const Home = ({ title }: HomeProps) => {
+const Home = () => {
   const [searchParams, setSearchParams] = useSearchParams({ q: "", p: "1" });
   const searchTerm = searchParams.get("q");
   const currentPage = Number(searchParams.get("p") || 1);

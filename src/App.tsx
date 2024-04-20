@@ -24,7 +24,7 @@ const App = () => {
         <Header />
         <main className="app">
           <Routes>
-            <Route path="/" element={<Home title={"Find Movies"} />} />
+            <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/movie/:movieId" element={<MovieDetails />} />
             <Route path="/person/:personId" element={<PersonDetails />} />
