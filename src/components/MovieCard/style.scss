@@ -3,7 +3,7 @@
 .movie {
     width: 290px;
     height: 440px;
-    margin: 1.5rem;
+    margin: 0 1.5rem 3rem;
   
     position: relative;
     border-radius: 12px;
@@ -91,6 +91,6 @@
     .movie {
         width: 90%;
         height: auto;
-        margin: 1rem;
+        margin: .5rem 1rem 1.5rem;
     }
 }
