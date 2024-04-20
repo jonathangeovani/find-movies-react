@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AppContextContent } from "./types";
 import { About, Home, PageNotFound } from "./pages";
 import { MovieDetails, PersonDetails } from "./pages";
-import { Footer, Nav } from "./components";
+import { Header, Footer } from "./components";
 import "./App.scss";
 
 let storedLanguage = localStorage.getItem("LANG");
@@ -21,7 +21,7 @@ const App = () => {
   return (
     <AppContext.Provider value={{ language, setLanguage }}>
       <Router>
-        <Nav />
+        <Header />
         <main className="app">
           <Routes>
             <Route path="/" element={<Home title={"Find Movies"} />} />

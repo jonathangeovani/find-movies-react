@@ -7,10 +7,11 @@ const About = () => {
     <>
       {language === "pt-BR" ? (
         <>
-          <h1>Sobre este projeto &nbsp;</h1>
+          <h2 style={{ marginTop: "1rem" }}>Sobre este projeto &nbsp;</h2>
           <div className="container">
             <p
               style={{
+                marginBottom: "2rem",
                 maxWidth: "50rem",
                 color: "#fff",
                 fontSize: "1.15rem",
@@ -79,7 +80,7 @@ const About = () => {
         </>
       ) : (
         <>
-          <h1>About this Project &nbsp;</h1>
+          <h2>About this Project &nbsp;</h2>
           <div className="container">
             <p
               style={{

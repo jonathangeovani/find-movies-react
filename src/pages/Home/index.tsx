@@ -44,7 +44,6 @@ const Home = ({ title }: HomeProps) => {
         refetch,
       }}
     >
-      <h1>{title} &nbsp;</h1>
       <SearchInput />
       <SearchResults />
       {!isFetching && <MoviesContainer />}

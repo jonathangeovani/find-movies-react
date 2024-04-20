@@ -1,12 +1,9 @@
 nav {
-    margin: 0 auto;
-    padding: 2.5rem 2.25rem;
-    padding-bottom: 0;
-    width: 90%;
-    max-width: 1360px;
+    padding-left: 20px;
     display: flex;
-    flex-direction: row-reverse;
     justify-content: space-between;
+    align-items: center;
+    flex: 1;
 }
 
 .languages {
@@ -44,21 +41,31 @@ nav {
         color: #fff;
         text-decoration: none;
         cursor: pointer;
-    }
-
-    &:hover {
-        color: #f9d3b4;
-    }
-
-    &:active {
-        color: #9a826f;
+        
+        &:hover {
+            color: #f9d3b4;
+        }
+    
+        &:active {
+            color: #9a826f;
+        }
     }
 }
 
 @media screen and (max-width: 700px) {
     nav {
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
+        align-items: center;
+        gap: 1rem;
     }
-  }
+}
+
+@media only screen and (max-width: 400px) {
+    nav {
+        gap: 0.8rem;
+
+        .nav-links,
+        .languages {
+            font-size: .9rem;
+        }
+    }
+}

@@ -9,20 +9,20 @@ export default function SearchResults() {
     <div className="search-results">
       {!isFetching ? (
         totalResults! > 0 ? (
-          <h2>
+          <p>
             {language === "pt-BR"
               ? `Resultado da busca: ${totalResults}`
               : `Results: ${totalResults}`}
-          </h2>
+          </p>
         ) : (
-          <h2>
+          <p>
             {language === "pt-BR"
               ? "Nenhum filme encontrado"
               : "No movie found"}
-          </h2>
+          </p>
         )
       ) : (
-        <h2>{language === "pt-BR" ? "Carregando..." : "Loading..."}</h2>
+        <p>{language === "pt-BR" ? "Carregando..." : "Loading..."}</p>
       )}
     </div>
   );

@@ -7,6 +7,27 @@ export default function Nav() {
   return (
     <nav>
       {language === "pt-BR" ? (
+        <div className="nav-links">
+          <Link
+            to="https://github.com/jonathangeovani/find-movies-react"
+            target="_blank"
+          >
+            Repositório
+          </Link>
+          <Link to="/about">Sobre</Link>
+        </div>
+      ) : (
+        <div className="nav-links">
+          <Link
+            to="https://github.com/jonathangeovani/find-movies-react"
+            target="_blank"
+          >
+            Repository
+          </Link>
+          <Link to="/about">About</Link>
+        </div>
+      )}
+      {language === "pt-BR" ? (
         <div className="languages">
           <span
             onClick={() => {
@@ -31,17 +52,6 @@ export default function Nav() {
             EN
           </span>
           |<span onClick={() => setLanguage("pt-BR")}>BR</span>
-        </div>
-      )}
-      {language === "pt-BR" ? (
-        <div className="nav-links">
-          <Link to="/">Página Inicial</Link>
-          <Link to="/about">Sobre</Link>
-        </div>
-      ) : (
-        <div className="nav-links">
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
         </div>
       )}
     </nav>
