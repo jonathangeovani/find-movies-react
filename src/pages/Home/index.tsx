@@ -20,7 +20,7 @@ const Home = () => {
 
   useEffect(() => {
     refetch();
-  }, [language]);
+  }, [language, searchParams]);
 
   useEffect(() => {
     window.scrollTo(0, 0);

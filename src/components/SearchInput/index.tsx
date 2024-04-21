@@ -1,51 +1,26 @@
 import SearchIcon from "../../assets/search.svg";
 import { useHomeContext } from "../../hooks";
+import { debounce } from "../../utils/debounce";
 import "./style.scss";
 
 export default function SearchInput() {
-  const { searchTerm, setSearchParams, refetch } = useHomeContext();
+  const { setSearchParams } = useHomeContext();
+
+  const onchange = debounce((e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchParams(
+      (prev) => {
+        prev.set("q", e.target.value);
+        prev.set("p", "1");
+        return prev;
+      },
+      { replace: true }
+    );
+  }, 1500);
+
   return (
     <div className="search">
-      <input
-        type="text"
-        placeholder="Search for movies"
-        value={searchTerm || ""}
-        onChange={(newSearchTerm) => {
-          setSearchParams(
-            (prev) => {
-              prev.set("q", newSearchTerm.target.value);
-              return prev;
-            },
-            { replace: true }
-          );
-        }}
-        onKeyDown={(e) => {
-          if (e.key === "Enter") {
-            setSearchParams(
-              (prev) => {
-                prev.set("p", "1");
-                return prev;
-              },
-              { replace: true }
-            );
-            refetch();
-          }
-        }}
-      />
-      <img
-        src={SearchIcon}
-        alt="Search"
-        onClick={() => {
-          setSearchParams(
-            (prev) => {
-              prev.set("p", "1");
-              return prev;
-            },
-            { replace: true }
-          );
-          refetch();
-        }}
-      />
+      <input type="text" placeholder="Search for movies" onChange={onchange} />
+      <img src={SearchIcon} alt="Search" />
     </div>
   );
 }
